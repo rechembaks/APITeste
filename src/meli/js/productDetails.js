@@ -5,6 +5,8 @@ var url = new URL(url_string);
 var mlb = url.searchParams.get("mlb");
 var variationsLength = 0;
 var link = "";
+var categoryName = "";
+var pathCategory = "";
 
 //This button, leaves the page and redirect to "search page"
 var newSearchBtn = document.querySelector("#new-search");
@@ -47,6 +49,7 @@ function searcheMLB(mlbn){
     console.log(product);
     requestProduct = JSON.stringify(product);
     let table = document.getElementById("product-details");
+    getCategory(product.category_id)
     cretePage();
     product = product.variations;
     variationsLength = product.length;
@@ -58,6 +61,8 @@ function searcheMLB(mlbn){
 }
 
 function cretePage(){
+    var category = document.getElementById('product-category').textContent = categoryName;
+    var categoryPath = document.getElementById('product-category-path').textContent = pathCategory;
     var name = document.getElementById('name').value = product.title;
     var price = document.getElementById('product-price').textContent = "R$ " + product.price;
     var thumbnail = document.getElementById('thumbnail').src = product.thumbnail;
@@ -111,3 +116,26 @@ function buildTable(productTable){
     }
     return row;
 };
+
+
+//Categorys
+
+function getCategory(cmlb){
+    category = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb));
+    console.log(category);
+    categoryAttributes = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb+"/attributes"));
+    requestProduct = JSON.stringify(category);
+    getCategoryPath(category.path_from_root.length);
+    categoryName = '"'+category.name+'"';
+    return(cmlb);
+}
+
+function getCategoryPath(path_from_root){
+    var path = "";
+    for (let i = 0; i < path_from_root;i++){
+        path = path + category.path_from_root[i].name + " > ";
+    }
+    paht = path.slice(0, -3);
+    pathCategory = "(" + path.slice(0, -3)+")";
+    return path;
+}

@@ -51,7 +51,7 @@
 .link:hover{
     text-decoration: none;
     background-color:cadetblue;
-    color: black;
+    color: white;
     border-radius: 5px;
 }
 
@@ -69,7 +69,7 @@
 #link-requisition:hover{
     text-decoration: none;
     background-color:cadetblue;
-    color: black;
+    color: white;
     border-radius: 5px;
 }
 
@@ -88,6 +88,21 @@
 #product-price{
     font-size: 20px;
 }
+
+#category{
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#product-category{
+    font-size: 20px;
+}
+
+#product-category-path{
+    font-size: 15px;
+}
+
 .product-details{
     margin:auto;
     border-collapse: separate;
