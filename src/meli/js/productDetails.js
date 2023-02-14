@@ -7,21 +7,8 @@ var variationsLength = 0;
 var link = "";
 var categoryName = "";
 var pathCategory = "";
-
-//This button, leaves the page and redirect to "search page"
-var newSearchBtn = document.querySelector("#new-search");
-newSearchBtn.addEventListener('click', function(){
-    window.location = "searchPage.html";
-})
-
-//This button, refresh the actual page with a new request
-var refreshBtn = document.querySelector("#refresh");
-refreshBtn.addEventListener('click', function(){
-    location.reload();
-});
-
-//This button opens a new page with the ad details on the "Meli" website
 var btnAnnouncement = document.querySelector('#link');
+
 btnAnnouncement.addEventListener('click', function(){
     var win = window.open(link, '_blank');
     win.focus();
@@ -46,7 +33,7 @@ searcheMLB(mlb);
 
 function searcheMLB(mlbn){
     product = JSON.parse(get("https://api.mercadolibre.com/items/"+mlbn));
-    console.log(product);
+    //console.log(product);
     requestProduct = JSON.stringify(product);
     let table = document.getElementById("product-details");
     getCategory(product.category_id)
@@ -122,7 +109,7 @@ function buildTable(productTable){
 
 function getCategory(cmlb){
     category = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb));
-    console.log(category);
+    //console.log(category);
     categoryAttributes = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb+"/attributes"));
     requestProduct = JSON.stringify(category);
     getCategoryPath(category.path_from_root.length);

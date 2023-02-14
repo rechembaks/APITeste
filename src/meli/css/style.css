@@ -1,130 +1,43 @@
-#nav-icon{
-    width: 25px;
-    height: 25px;
-    margin-right: 5px;
+#navbar{
+    opacity: 85%;
+    background-color: #21003A;
 }
 
-#refresh, #new-search{
-    background-color: white;
-    color: cadetblue;
-    margin-right: 5px;
-}
-
-#refresh:hover, #new-search:hover{
-    background-color: cadetblue;
+#link-menu{
     color: white;
-   
-}
-.content{
-    text-align: center;
-    height: 100%;
-}
-
-.col-md-8{
-    background-color: white;
-}
-
-.input-page{
-    display: inline-block;
-    margin-top: 100px;
-    width: 600px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 25px;
-    border: 1px solid; 
-    font-weight: bold;
     font-size: 20px;
 }
 
-.link{
-    margin-top: 30px;
-    margin-bottom: 50px;
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    width: 150px;
-    border: 1px solid; 
+#link-menu:hover{
+    color: gainsboro;
+}
+
+#link-menu-disabled{
+    color: rgb(180, 180, 180);
     font-size: 20px;
 }
 
-.link:hover{
-    text-decoration: none;
-    background-color:cadetblue;
+.logo{
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 60px;
+    height: 60px;
+}
+
+.nav-title{
     color: white;
-    border-radius: 5px;
+    font-size: 30px;
+    margin-left: 15px;
 }
 
-#link-requisition{
-    margin-bottom: 50px;
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    width: 250px;
-    border: 1px solid; 
-    font-size: 20px;
-}
-
-#link-requisition:hover{
-    text-decoration: none;
-    background-color:cadetblue;
-    color: white;
-    border-radius: 5px;
-}
-
-#thumbnail{
-    margin-top: 25px;
-    border: 1px solid cadetblue;
-    border-radius: 50%;
-}
-
-#price{
-    margin-top: 50px;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-#product-price{
-    font-size: 20px;
-}
-
-#category{
-    margin-top: 50px;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-#product-category{
-    font-size: 20px;
-}
-
-#product-category-path{
-    font-size: 15px;
-}
-
-.product-details{
-    margin:auto;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-th{
-    background-color:cadetblue;
-}
-
-.row-tr{
-    border-collapse: separate;
-    border-spacing: 0;
-    border: 1px solid;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#complete-request{
-    margin-top: 50px;
+.end-page{
+    background-color: #21003A;
     width: 100%;
-    height: 500px;
+    text-align: center;
+    padding: 15px;
+}
+
+.logo-end-page{
+    width: 128px;
+    height: 128px;
 }
