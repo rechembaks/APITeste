@@ -75,13 +75,24 @@
     width: 100%;
 }
 
+th{
+    background-color: #21003A;
+}
+
+#row-id,#row-fisrt-attribute, #row-second-attribute, #row-stock{
+    color: white;
+    border-right-color: white;
+}
+
+#row-price{
+    color: white;
+}
+
 .row-tr{
     border: solid 1px #21003A;
     padding: 5px;
     color: #21003A;
 }
-
-
 
 @media screen and (min-width: 1280px) {
     .content {

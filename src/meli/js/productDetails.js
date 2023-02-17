@@ -5,12 +5,13 @@ var url = new URL(url_string);
 var mlb = url.searchParams.get("mlb");
 var variationsLength = 0;
 var link = "";
+var linkAnnouncement = ""
 var categoryName = "";
 var pathCategory = "";
 var btnAnnouncement = document.querySelector('#link');
 
 btnAnnouncement.addEventListener('click', function(){
-    var win = window.open(link, '_blank');
+    var win = window.open(linkAnnouncement, '_blank');
     win.focus();
 });
 
@@ -53,7 +54,8 @@ function cretePage(){
     var name = document.getElementById('name').value = product.title;
     var price = document.getElementById('product-price').textContent = "R$ " + product.price;
     var thumbnail = document.getElementById('thumbnail').src = product.thumbnail;
-    link = product.permalink;
+    linkAnnouncement = product.permalink;
+    console.log(linkAnnouncement)
 }
 
 
