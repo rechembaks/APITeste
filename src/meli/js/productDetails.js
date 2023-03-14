@@ -34,12 +34,13 @@ searcheMLB(mlb);
 
 function searcheMLB(mlbn){
     product = JSON.parse(get("https://api.mercadolibre.com/items/"+mlbn));
-    //console.log(product);
+    console.log(product);
     requestProduct = JSON.stringify(product);
     let table = document.getElementById("product-details");
     getCategory(product.category_id)
     cretePage();
     product = product.variations;
+    console.log(product);
     variationsLength = product.length;
     product.forEach(element => {
         let row = buildTable(element);
@@ -82,8 +83,8 @@ function buildTable(productTable){
         td_value_attribute_one.innerHTML = productTable.attribute_combinations[0].value_name;
         td_value_attribute_one.classList.add("row-tr");
         row.appendChild(td_value_attribute_one);
-
-        if(variationsLength > 1){
+        console.log(productTable.attribute_combinations.length);
+        if(productTable.attribute_combinations.length > 1){
             let table_second_attribute = document.getElementById('row-second-attribute').hidden=false;
 
             var nameAttribute = document.getElementById('row-second-attribute').textContent=productTable.attribute_combinations[1].name;

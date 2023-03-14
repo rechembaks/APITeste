@@ -18,7 +18,7 @@ searchBtn.addEventListener('click', function(){
             returnSearch.style.marginBottom = "50px";
         }else{
             document.getElementById('return-search').innerHTML = " ";
-            window.open ("productDetails.html?mlb="+mlb, '_blank');
+            window.open ("product-details.html?mlb="+mlb, '_blank');
         }
     } 
 });
