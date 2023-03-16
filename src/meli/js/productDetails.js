@@ -34,13 +34,11 @@ searcheMLB(mlb);
 
 function searcheMLB(mlbn){
     product = JSON.parse(get("https://api.mercadolibre.com/items/"+mlbn));
-    console.log(product);
     requestProduct = JSON.stringify(product);
     let table = document.getElementById("product-details");
     getCategory(product.category_id)
     cretePage();
     product = product.variations;
-    console.log(product);
     variationsLength = product.length;
     product.forEach(element => {
         let row = buildTable(element);
@@ -55,12 +53,21 @@ function cretePage(){
     var name = document.getElementById('name').value = product.title;
     var price = document.getElementById('product-price').textContent = "R$ " + product.price;
     var thumbnail = document.getElementById('thumbnail').src = product.thumbnail;
+    var status = product.status;
+    if (status == "active"){
+        status = document.getElementById('status').textContent = "Status do anúncio: Ativo"
+    }else{
+        if(status == "closed"){
+            status = document.getElementById('status').textContent = "Status do anúncio: Finalizado"
+        }else{
+            if(status == "paused"){
+                status = document.getElementById('status').textContent = "Status do anúncio: Inativo"
+            }
+        }
+    }
+
     linkAnnouncement = product.permalink;
-    console.log(linkAnnouncement)
 }
-
-
-
 
 function buildTable(productTable){
     if(variationsLength > 0){ 
@@ -68,7 +75,7 @@ function buildTable(productTable){
         //desoculta os títulos da tabela --> Início
         let table_id = document.getElementById('row-id').hidden=false;
         let table_fisrt_attribute = document.getElementById('row-fisrt-attribute').hidden=false;
-        let table_stock = document.getElementById('row-stock').hidden=false;
+        /* let table_stock = document.getElementById('row-stock').hidden=false; */
         let table_price = document.getElementById('row-price').hidden=false;
         //desoculta os títulos da tabela --> Fim
 
@@ -83,7 +90,6 @@ function buildTable(productTable){
         td_value_attribute_one.innerHTML = productTable.attribute_combinations[0].value_name;
         td_value_attribute_one.classList.add("row-tr");
         row.appendChild(td_value_attribute_one);
-        console.log(productTable.attribute_combinations.length);
         if(productTable.attribute_combinations.length > 1){
             let table_second_attribute = document.getElementById('row-second-attribute').hidden=false;
 
@@ -94,10 +100,19 @@ function buildTable(productTable){
             row.appendChild(td_value_attribute_two);
         }
 
-        td_stock = document.createElement("td");
+        if(productTable.attribute_combinations.length > 2){
+            let table_third_attribute = document.getElementById('row-third-attribute').hidden=false;
+            var nameAttribute = document.getElementById('row-third-attribute').textContent=productTable.attribute_combinations[2].name;
+            td_value_attribute_tree = document.createElement("td");
+            td_value_attribute_tree.innerHTML = productTable.attribute_combinations[2].value_name;
+            td_value_attribute_tree.classList.add("row-tr");
+            row.appendChild(td_value_attribute_tree);
+        }
+
+        /* td_stock = document.createElement("td");
         td_stock.innerHTML = productTable.available_quantity;
         td_stock.classList.add("row-tr");
-        row.appendChild(td_stock);
+        row.appendChild(td_stock); */
 
         td_price = document.createElement("td");
         td_price.innerHTML = productTable.price;
@@ -112,7 +127,6 @@ function buildTable(productTable){
 
 function getCategory(cmlb){
     category = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb));
-    //console.log(category);
     categoryAttributes = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb+"/attributes"));
     requestProduct = JSON.stringify(category);
     getCategoryPath(category.path_from_root.length);

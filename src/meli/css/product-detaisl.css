@@ -33,7 +33,7 @@
     margin-bottom: 15px;
 }
 
-#price, #category, #product-type{
+#price, #category, #product-type, #status{
     font-size: 20px;
     font-weight: bold;
     color: #21003A;
@@ -79,7 +79,7 @@ th{
     background-color: #21003A;
 }
 
-#row-id,#row-fisrt-attribute, #row-second-attribute, #row-stock{
+#row-id,#row-fisrt-attribute, #row-second-attribute, #row-third-attribute, #row-stock{
     color: white;
     border-right-color: white;
 }
