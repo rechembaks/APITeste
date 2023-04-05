@@ -38,8 +38,14 @@
                       <li><a class="dropdown-item disabled" href="#">Consulta de pedidos</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" id="link-menu-disabled">Sobre</a>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="link-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Sobre
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="changelog.html">Changelog</a></li>
+                      <!-- <li><hr class="dropdown-divider"></li> -->
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -54,13 +60,27 @@
                 <br>
                 <img id="thumbnail" src="">
                 <br>
-                <p id="price">Preço do Produto</p>
-                <p id="product-price"></p>
-                <p id="category">Categoria do Produto</p>
-                <p id="product-category"></p>
-                <p id="product-category-path"></p>
-                <br>
-                <p id="status">Status do Anúncio:</p>
+                <ul>
+                  <li>
+                    <p id="price">Características do anúncio</p>
+                  </li>
+                  <li>
+                    <p id="price">&bull; Preço:</p>
+                    <p id="product-price"></p>
+                  </li>
+                  <li>
+                    <p id="category">&bull; Categoria:</p>
+                    <p id="product-category"></p>
+                  </li>
+                  <li>
+                    <p id="category">&bull; Árvore da Categoria:</p>
+                    <p id="product-category-path"></p>
+                  </li>
+                  <li>
+                    <p id="status-marc">&bull;</p>
+                    <p id="status"> Status:</p>
+                  </li>
+                </ul>
                 <br>
                 <button id="link" class="link">Ver Anúncio</button>
                 <button id="link-requisition" class="link-requisition"> Ver Requisição</button>
@@ -75,7 +95,7 @@
                     <th id="row-second-attribute" class="row-tr" hidden="true"></th>
                     <th id="row-third-attribute" class="row-tr" hidden="true"></th>
                     <!-- <th id="row-stock" class="row-tr" hidden="true">Estoque</th> -->
-                    <th id="row-price" class="row-tr" hidden="true">Preço</th>
+                    <!-- <th id="row-price" class="row-tr" hidden="true">Preço</th> -->
                   </tr>
                 </table>
               </div>

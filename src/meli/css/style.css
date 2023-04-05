@@ -5,7 +5,7 @@
 
 #link-menu{
     color: white;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #link-menu:hover{
@@ -14,14 +14,14 @@
 
 #link-menu-disabled{
     color: rgb(180, 180, 180);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .logo{
     margin-left: 15px;
     margin-right: 15px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .nav-title{
@@ -40,4 +40,8 @@
 .logo-end-page{
     width: 128px;
     height: 128px;
+}
+
+.changelog{
+    padding: 100px;;
 }

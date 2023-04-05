@@ -3,7 +3,17 @@ var returnSearch = document.getElementById('return-search');
 let mlb;
 let searchBtn = document.querySelector("#search-mlb-btn");
 
+document.addEventListener('keypress', function(e){
+    if(e.which == 13){
+       verifyNGo();
+    }
+ }, false);
+
 searchBtn.addEventListener('click', function(){
+   verifyNGo();
+});
+
+function verifyNGo(){
     mlb = document.getElementById('search-mlb');
     if(mlb.value == ""){
         document.getElementById('return-search').innerHTML = "Preencha o MLB do anúncio!";
@@ -21,7 +31,8 @@ searchBtn.addEventListener('click', function(){
             window.open ("product-details.html?mlb="+mlb, '_blank');
         }
     } 
-});
+}
+
 
 function get(url){
     let rquest = new XMLHttpRequest()

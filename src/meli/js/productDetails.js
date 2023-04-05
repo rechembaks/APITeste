@@ -51,17 +51,17 @@ function cretePage(){
     var category = document.getElementById('product-category').textContent = categoryName;
     var categoryPath = document.getElementById('product-category-path').textContent = pathCategory;
     var name = document.getElementById('name').value = product.title;
-    var price = document.getElementById('product-price').textContent = "R$ " + product.price;
+    var price = document.getElementById('product-price').textContent = product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
     var thumbnail = document.getElementById('thumbnail').src = product.thumbnail;
     var status = product.status;
     if (status == "active"){
-        status = document.getElementById('status').textContent = "Status do anúncio: Ativo"
+        status = document.getElementById('status').textContent = "Status: Ativo"
     }else{
         if(status == "closed"){
-            status = document.getElementById('status').textContent = "Status do anúncio: Finalizado"
+            status = document.getElementById('status').textContent = "Status: Finalizado"
         }else{
             if(status == "paused"){
-                status = document.getElementById('status').textContent = "Status do anúncio: Inativo"
+                status = document.getElementById('status').textContent = "Status: Inativo"
             }
         }
     }
@@ -76,7 +76,7 @@ function buildTable(productTable){
         let table_id = document.getElementById('row-id').hidden=false;
         let table_fisrt_attribute = document.getElementById('row-fisrt-attribute').hidden=false;
         /* let table_stock = document.getElementById('row-stock').hidden=false; */
-        let table_price = document.getElementById('row-price').hidden=false;
+        /* let table_price = document.getElementById('row-price').hidden=false; */
         //desoculta os títulos da tabela --> Fim
 
         row = document.createElement("tr");
@@ -114,10 +114,10 @@ function buildTable(productTable){
         td_stock.classList.add("row-tr");
         row.appendChild(td_stock); */
 
-        td_price = document.createElement("td");
-        td_price.innerHTML = productTable.price;
+        /* td_price = document.createElement("td");
+        td_price.innerHTML = productTable.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
         td_price.classList.add("row-tr");
-        row.appendChild(td_price);
+        row.appendChild(td_price); */
     }
     return row;
 };
