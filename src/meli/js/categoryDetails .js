@@ -5,6 +5,8 @@ var pathCategory = "";
 var url_string = window.location.href;
 var url = new URL(url_string);
 var mlb = url.searchParams.get("mlb");
+var maxPicturesItem = 0;
+var maxPicturesVariation = 0;
 
 var btnRequest = document.querySelector('#link-requisition');
 btnRequest.addEventListener('click', function(){
@@ -36,8 +38,11 @@ function getCategory(cmlb){
     getCategory = JSON.stringify(category);
     getCategoryPath(category.path_from_root.length);
     categoryName = category.name;
+    maxPicturesItem = category.settings.max_pictures_per_item;
+    maxPicturesVariation = category.settings.max_pictures_per_item_var;
+    
+    console.log(maxPicturesItem);
 
-    console.log(categoryAttributes[0].name);
     let table = document.getElementById("category-details");
     categoryAttributes.forEach(element => {
         let row = buildTable(element);
@@ -46,6 +51,8 @@ function getCategory(cmlb){
 
     document.getElementById('category-name').setAttribute("value", categoryName);
     document.getElementById('category-path').innerHTML = pathCategory;
+    document.getElementById('category-max-pictures').innerHTML = "Por item: "+maxPicturesItem;
+    document.getElementById('category-max-pictures-var').innerHTML += "<br>Por variação: "+maxPicturesVariation;
     return(cmlb);
 }
 
@@ -100,20 +107,37 @@ function buildTable(categoryTable){
             case "list":
                 tdDataType.innerHTML = "Lista";
                 break; 
+            case "number":
+                tdDataType.innerHTML = "Númerico";
+                break;
         }
         tdDataType.classList.add("row-tr");
         row.appendChild(tdDataType);
 
         tdRequired = document.createElement("td");
-        tdRequired.innerHTML = categoryTable.tags.catalog_required;
-        if(categoryTable.tags.catalog_required == true){
-            tdRequired.innerHTML = "Sim";
-        }
-        else{
-            tdRequired.innerHTML = "Não";
+        switch(categoryTable.tags.required)
+        {
+            case true:
+                tdRequired.innerHTML = "Sim";
+                break;
+            default:
+                tdRequired.innerHTML = "Não";
+                break;            
         }
         tdRequired.classList.add("row-tr");
         row.appendChild(tdRequired);
+
+        tdAllowVariation = document.createElement("td");
+        switch(categoryTable.tags.allow_variations)
+        {
+            case true:
+                tdAllowVariation.innerHTML = "Sim";
+                break;
+            default:
+                tdAllowVariation.innerHTML = "Não";
+        }
+        tdAllowVariation.classList.add("row-tr");
+        row.appendChild(tdAllowVariation);
     return row;
 };
 

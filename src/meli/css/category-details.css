@@ -13,7 +13,7 @@
 .category-details-div{
     width: 100%;
     display: inline-block;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     border-radius: 5px;
 }
@@ -26,13 +26,13 @@
 }
 
 .input-page{
-    width: 300px;
+    width: 240px;
     font-size: 20px;
     text-align: center;
     padding: 7px;
     border-radius: 5px;
     border: 1px solid #21003A;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 }
 
 #category-path-title{
@@ -45,8 +45,15 @@
 #category-path{
     font-size: 20px;
     color: #21003A;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 }
+
+#category-max-pictures, #category-max-pictures-var{
+    font-size: 20px;
+    color: #21003A;
+    margin-bottom: -15px;
+}
+
 
 #category-attributes-title{
     font-size: 25px;
@@ -61,6 +68,7 @@
     border: 1px solid;
     border-radius: 5px;
     margin-bottom: 45px;
+    margin-top: 15px;
 }
 
 #link:hover, #link-requisition:hover{
@@ -72,7 +80,7 @@
 
 .category-variations-div{
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     border: 1px solid #21003A;
     border-radius: 5px;
