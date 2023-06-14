@@ -54,18 +54,29 @@ function cretePage(){
     var price = document.getElementById('product-price').textContent = product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
     var thumbnail = document.getElementById('thumbnail').src = product.thumbnail;
     var status = product.status;
-    if (status == "active"){
-        status = document.getElementById('status').textContent = "Status: Ativo"
-    }else{
-        if(status == "closed"){
-            status = document.getElementById('status').textContent = "Status: Finalizado"
-        }else{
-            if(status == "paused"){
-                status = document.getElementById('status').textContent = "Status: Inativo"
-            }
-        }
+    switch (status){
+        case "active":
+            status = document.getElementById('status').textContent = "Status: Ativo";
+            break;
+        case "closed":
+            status = document.getElementById('status').textContent = "Status: Finalizado";
+            break;
+        case "inactive":
+            status = document.getElementById('status').textContent = "Status: Inativo";
+            break
+        case "not_yet_active":
+            status = document.getElementById('status').textContent = "Status: Aguardando Ativação";
+            break;
+        case "paused":
+            status = document.getElementById('status').textContent = "Status: Inativo";
+            break;
+        case "payment_required":
+            status = document.getElementById('status').textContent = "Conta com pendências";
+            break;
+        case "under_review":
+            status = document.getElementById('status').textContent = "Status: Em Revisão";
+            break;
     }
-
     linkAnnouncement = product.permalink;
 }
 
@@ -75,17 +86,13 @@ function buildTable(productTable){
         //desoculta os títulos da tabela --> Início
         let table_id = document.getElementById('row-id').hidden=false;
         let table_fisrt_attribute = document.getElementById('row-fisrt-attribute').hidden=false;
-        /* let table_stock = document.getElementById('row-stock').hidden=false; */
-        /* let table_price = document.getElementById('row-price').hidden=false; */
         //desoculta os títulos da tabela --> Fim
-
         row = document.createElement("tr");
         var nameAttribute = document.getElementById('row-fisrt-attribute').textContent=productTable.attribute_combinations[0].name;
         tdId = document.createElement("td");
         tdId.innerHTML = productTable.id;
         tdId.classList.add("row-tr");
         row.appendChild(tdId);
-
         td_value_attribute_one = document.createElement("td");
         td_value_attribute_one.innerHTML = productTable.attribute_combinations[0].value_name;
         td_value_attribute_one.classList.add("row-tr");
@@ -108,23 +115,10 @@ function buildTable(productTable){
             td_value_attribute_tree.classList.add("row-tr");
             row.appendChild(td_value_attribute_tree);
         }
-
-        /* td_stock = document.createElement("td");
-        td_stock.innerHTML = productTable.available_quantity;
-        td_stock.classList.add("row-tr");
-        row.appendChild(td_stock); */
-
-        /* td_price = document.createElement("td");
-        td_price.innerHTML = productTable.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
-        td_price.classList.add("row-tr");
-        row.appendChild(td_price); */
     }
     return row;
 };
-
-
 //Categorys
-
 function getCategory(cmlb){
     category = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb));
     categoryAttributes = JSON.parse(get("https://api.mercadolibre.com/categories/"+cmlb+"/attributes"));

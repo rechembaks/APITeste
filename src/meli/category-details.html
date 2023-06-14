@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="css/reset.css">
-      <link rel="stylesheet" type="text/css" href="css/product-detaisl.css">
+      <link rel="stylesheet" type="text/css" href="css/category-details.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
       
       <title>Resultado da Busca - Mercado Livre</title>
@@ -55,47 +55,25 @@
         <main>
           <div class="container">
             <div class="content">
-              <div class="product-details-div">
-                <input type="text" id="name" class="input-page" readonly>
+              <div class="category-details-div">
+                <h1 id="category-title">Nome da categoria</h1>
+                <input type="text" id="category-name" class="input-page" readonly>
                 <br>
-                <img id="thumbnail" src="">
-                <br>
-                <ul>
-                  <li>
-                    <p id="price">Características do anúncio</p>
-                  </li>
-                  <li>
-                    <p id="price">&bull; Preço:</p>
-                    <p id="product-price"></p>
-                  </li>
-                  <li>
-                    <p id="category">&bull; Categoria:</p>
-                    <p id="product-category"></p>
-                  </li>
-                  <li>
-                    <p id="category">&bull; Árvore da Categoria:</p>
-                    <p id="product-category-path"></p>
-                  </li>
-                  <li>
-                    <p id="status-marc">&bull;</p>
-                    <p id="status"> Status:</p>
-                  </li>
-                </ul>
-                <br>
-                <button id="link" class="link">Ver Anúncio</button>
+                <h2 id="category-path-title">Caminho da categoria</h2>
+                <p id="category-path">Teste</p>
                 <button id="link-requisition" class="link-requisition"> Ver Requisição</button>
+                <button id="link" class="link"> Nova Consulta</button>
+                <h3 id="category-attributes-title">Lista de atributos da categoria</h3>
               </div>
 
-              <div class="product-variations-div">
-                <h2 id="product-type">Produto sem variações</h2>
-                <table class="product-details" id="product-details">
+              <div class="category-variations-div">
+                <table class="category-details" id="category-details">
                   <tr>
-                    <th id="row-id" class="row-tr" hidden="true">ID da Variação</th>
-                    <th id="row-fisrt-attribute" class="row-tr" hidden="true"></th>
-                    <th id="row-second-attribute" class="row-tr" hidden="true"></th>
-                    <th id="row-third-attribute" class="row-tr" hidden="true"></th>
-                    <!-- <th id="row-stock" class="row-tr" hidden="true">Estoque</th> -->
-                    <!-- <th id="row-price" class="row-tr" hidden="true">Preço</th> -->
+                    <th id="row-title" class="row-tr" title="Teste">ID do Campo</th>
+                    <th id="row-title" class="row-tr">Nome do campo</th>
+                    <th id="row-title" class="row-tr">Tipo de atríbuto</th>
+                    <th id="row-title" class="row-tr">Tipo de dados</th>
+                    <th id="row-title" class="row-tr">Obrigatório</th>
                   </tr>
                 </table>
               </div>
@@ -104,7 +82,7 @@
                 <p id="return-search" hidden></p>
         </main>
         <footer>
-            <script type="text/javascript" src="js/ProductDetails.js"></script>
+            <script type="text/javascript" src="js/categoryDetails .js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         </footer>
     </body>
