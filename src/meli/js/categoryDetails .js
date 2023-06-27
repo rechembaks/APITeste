@@ -110,20 +110,23 @@ function buildTable(categoryTable){
             case "number":
                 tdDataType.innerHTML = "Númerico";
                 break;
+            case "grid_row_id":
+                tdDataType.innerHTML = "Tabela";
+                break;
+            case "grid_id":
+                tdDataType.innerHTML = "Tabela";
+                break;
         }
         tdDataType.classList.add("row-tr");
         row.appendChild(tdDataType);
 
         tdRequired = document.createElement("td");
-        switch(categoryTable.tags.required)
-        {
-            case true:
-                tdRequired.innerHTML = "Sim";
-                break;
-            default:
-                tdRequired.innerHTML = "Não";
-                break;            
+        if (categoryTable.tags.required == true || categoryTable.value_type == "grid_row_id" || categoryTable.value_type == "grid_id"){
+            tdRequired.innerHTML = "Sim";
+        }else{
+            tdRequired.innerHTML = "Não";
         }
+        
         tdRequired.classList.add("row-tr");
         row.appendChild(tdRequired);
 
